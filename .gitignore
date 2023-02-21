@@ -23,6 +23,7 @@ target/
 .settings
 .springBeans
 .sts4-cache
+.bla.txt
 
 ### NetBeans ###
 /nbproject/private/
