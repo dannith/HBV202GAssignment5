@@ -8,6 +8,7 @@ import org.junit.Test;
 public class IntStackTest {
 
     private IntStack stack;
+    private int number;
 
     @Before
     public void createTestStack(){
@@ -34,15 +35,26 @@ public class IntStackTest {
 
     @Test
     public void testAlmostEmptyStackIsNotFull(){
-        stack.push(1);
+        stack.push(number);
         assertFalse(stack.isFull());
     }
 
     @Test
-    public void testPopReturnsPushedValue(int tala){
-        stack.push(tala);
+    public void testPopReturnsPushedValue(){
+        stack.push(number);
         int poppedTala = stack.pop();
-        assertEquals(tala, poppedTala);
+        assertEquals(number, poppedTala);
+    }
+
+    @Test(expected = ArrayIndexOutOfBoundsException.class)
+    public void testPopOnEmptyStack(){
+        stack.pop();
+    }
+
+    @Test(expected = ArrayIndexOutOfBoundsException.class)
+    public void testPushOnFullStack(){
+        for(int i = 0; i < stack.getCapacity() + 1; i++)
+            stack.push(i);
     }
 
 }
