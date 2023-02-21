@@ -14,6 +14,12 @@ public class IntStackTest {
     public void createTestStack(){
         stack = new IntStack();
     }
+
+    @Before
+    public void initNumber(){
+        number = 5;
+    }
+
     @Test
     public void testNewStackIsNotFull() {
         assertFalse(stack.isFull());
